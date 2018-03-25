@@ -16,9 +16,9 @@ FQDN VARCHAR(100) NOT NULL UNIQUE,
 DMZ_IN_IP VARCHAR(15) NOT NULL UNIQUE,
 DMZ_OUT_IP VARCHAR(15) NOT NULL UNIQUE,
 MGMT_IP VARCHAR(15) NOT NULL UNIQUE,
-id_server_type int NOT NULL UNIQUE,
-id_customer int NOT NULL UNIQUE,
-id_auth int NOT NULL UNIQUE
+id_server_type int NOT NULL,
+id_customer int NOT NULL,
+id_auth int NOT NULL
 );
 
 CREATE TABLE Server_Type(
@@ -78,3 +78,6 @@ INSERT INTO Authentication (auth) VALUES ('bWlBZG1pbjptb2JpbGVpcm9uMTIz');
 INSERT INTO Contacts (lastname, firstname, email, mobile) VALUES ('Beiner', 'Armin', 'armin.beiner@hotmail.com', '+41795400123');
 INSERT INTO Customers (name, id_contacts) VALUES ('Labor TEC-OWS', 1);
 INSERT INTO Server (FQDN, DMZ_IN_IP, DMZ_OUT_IP, MGMT_IP, id_server_type, id_customer, id_auth) VALUES ('vsp02.cbu.mdm-mobile.ch', '10.100.110.20', '10.100.111.20', '10.100.100.10', 1, 1, 1);
+INSERT INTO Server (FQDN, DMZ_IN_IP, DMZ_OUT_IP, MGMT_IP, id_server_type, id_customer, id_auth) VALUES ('vsp03.cbu.mdm-mobile.ch', '10.100.110.21', '10.100.111.21', '10.100.100.11', 1, 1, 1);
+
+
