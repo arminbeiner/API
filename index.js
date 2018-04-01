@@ -4,7 +4,9 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 
-import Database from './app/db-requests'
+import {getVersionfromCore} from './app/Core/getCoreData'
+
+import Database from './app/Database/db-requests'
 
 
 let app = express()
@@ -42,6 +44,29 @@ router.route('/overview')
             log.info('Data for overview successfully loaded')
         }
     })
+
+router.route('/fqdn')
+    .get(function (req, res, err) {
+      data.getAllFQDNfromServer(res)
+        if(err){
+          log.error(err.message)
+        }
+        else{
+          log.info('All FQDN successfully returned')
+        }
+    })
+
+router.route('/test')
+    .get(function (req, res, err) {
+        getVersionfromCore()
+        if(err){
+            log.error(err.message)
+        }
+        else{
+            log.info('Test whut')
+        }
+    })
+
 
 app.use('/', router)
 
